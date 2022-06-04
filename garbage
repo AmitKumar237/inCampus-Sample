@@ -1,0 +1,112 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyC4HtZ6-WedRe2WIGXo75YdX6l6BnYeMzQ",
+    authDomain: "incampus-573ea.firebaseapp.com",
+    projectId: "incampus-573ea",
+    storageBucket: "incampus-573ea.appspot.com",
+    messagingSenderId: "1009118921789",
+    appId: "1:1009118921789:web:cb061c4e80af6d814bd654"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  
+  // Initialize variable
+  const auth = getAuth(app);
+  const database = getDatabase();
+
+  
+
+  function register(){
+      //get all data
+        full_name = document.getElementById('email').value
+        college_name = document.getElementById('college_name').value
+        email = document.getElementById('email').value
+        password = document.getElementById('password1').value
+        password2 = document.getElementById('password2').value
+        // validate details
+
+        if(validate_email(email) == false || validate_password(password,password2) == false){
+            alert("Email or password is not correct!")
+            return
+        }
+
+        if(validate_field(full_name) == false|| validate_field(college_name) == false){
+            alert("Some Feild may be blank!")
+            return
+        }
+
+        alert("here...")
+
+        // register user
+        createUserWithEmailAndPassword(auth, email, password)
+        .then(function(){
+            alert("I m here");
+            // declare user variable
+            var user = auth.currentUser
+
+            set(ref(database, 'users/' + user.uid), {
+                email : email,
+                full_name : full_name,
+                college_name : college_name,
+                last_login : Date.now()
+            });
+
+            // Add this to firebase Databse
+            
+           // var database_ref = database.ref()
+
+           // var user_data = {
+           //     email : email,
+            //    full_name : full_name,
+           //     college_name : college_name,
+           //     last_login : Date.now()
+           // }
+            
+           // database_ref.child('users/' +user.uid).set(user_data)
+
+            alert("User is registered!")
+
+        })
+        .catch(function(error){
+            // Firebase will use this to show error
+
+            var error_code = error.code
+            var error_message = error.message
+            alert(error_message)
+        })
+
+  }
+
+  function validate_email(email){
+      expression = /^[^@]+@\w+(\.\w+)+\w$/
+      if(expression.test(email) == true){
+          return true
+      }else{
+          return false
+      }
+  }
+
+  function validate_password(password,password2){
+      if(password != password2){
+            return false
+      }
+      
+      if(password < 6){
+        return false
+      }
+      else{
+          return true
+      }
+  }
+
+  function validate_field(field){
+      if(field == null){
+          return false
+      }
+
+      if(field <= 0){
+          return false
+      }else{
+          return true
+      }
+  }
