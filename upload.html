@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Details</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">inCampus</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="home.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Products
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="books.html">Study Material</a></li>
+                  <li><a class="dropdown-item" href="cycles.html">Cycles</a></li>
+                  <li><a class="dropdown-item" href="essential.html">Essentials</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="upload.html">Add Product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="request.html">Request</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="community.html">Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contactUs.html">Any Problem?</a>
+              </li>
+              </ul>
+              <button class="btn" id="myButton">Go to your Account</button>
+          </div>
+        </div>
+      </nav>
+
+</header>
+
+<!-- End of Header-->
+
+<!-- Main Body Start-->
+
+<h2 class="h1-responsive font-weight-bold text-center my-4">Add Product</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Tell us about your product so we can define it properly(Fill the necesasary fields).</p>
+
+
+<!-- Wrapper container -->
+<div class="container py-4">
+
+  <!-- Bootstrap 5 starter form -->
+  <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+
+    <!-- Title input -->
+    <div class="mb-3">
+      <label class="form-label" for="title">Title</label>
+      <input class="form-control" id="title" type="text" data-sb-validations="required" />
+      <div class="invalid-feedback" data-sb-feedback="name:required">Title is required.</div>
+    </div>
+
+    <!-- Publication input -->
+    <div class="mb-3">
+      <label class="form-label" for="publicationCompany">Publication/Company</label>
+      <input class="form-control" id="publicationCompany" type="text"/>
+    </div>
+
+    <!--Category-->
+    <div class="mb-3 mt-2">
+      <label for="category" class="form-label">Category</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+        <label class="form-check-label" for="flexRadioDefault1">
+          Study Materials
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+        <label class="form-check-label" for="flexRadioDefault2">
+          Cycles
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+        <label class="form-check-label" for="flexRadioDefault3">
+          Essential Items
+        </label>
+      </div>
+
+    </div>
+
+
+    <!--Product Image-->
+    <div class="mb-3">
+      <label for="image" class="form-label">Product Image</label>
+      <input class="form-control" id="title" type="file" data-sb-validations="required" />
+      <div class="invalid-feedback" data-sb-feedback="name:required">Product image is required.</div>
+    </div>
+
+    <!-- description input -->
+    <div class="mb-3">
+      <label class="form-label" for="description">Description</label>
+      <textarea class="form-control" id="description" type="text" placeholder="Description" style="height: 7rem;" data-sb-validations="required"></textarea>
+      <div class="invalid-feedback" data-sb-feedback="message:required">Message is required.</div>
+    </div>
+
+    <!-- Form submissions success message -->
+    <div class="d-none" id="submitSuccessMessage">
+      <div class="text-center mb-3">Form submission successful!</div>
+    </div>
+
+    <!-- Form submissions error message -->
+    <div class="d-none" id="submitErrorMessage">
+      <div class="text-center text-danger mb-3">Error sending message!</div>
+    </div>
+
+    <!-- Form submit button -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button>
+    </div>
+
+  </form>
+
+</div>
+
+<!-- SB Forms JS -->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+<!--Section: Contact v.2-->
+
+
+<!-- Main Body End -->
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 mt-3">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3 navbar-brand"></i>inCampus
+            </h6>
+            <p>
+              Website where you can find and request from all of your collegemate anything which he/she want to sold or exchange like books , notes , cycles , and all other stuffs!
+            </p>
+          </div>
+          <!-- Grid column -->
+        
+          
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4 mt-3">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> Bhopal , MP 462022, India</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              infoincampus@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 91 7000 123 51 6</p>
+            <p><i class="fas fa-print me-3"></i> + 91 9589 044 46 1</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="#">incampus.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "account.html";
+    };
+</script>
+</body>
+</html>

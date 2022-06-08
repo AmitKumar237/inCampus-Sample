@@ -27,27 +27,27 @@
   </nav>
 </header>
 
-<!-- Login Form Start-->
+<!-- Login Form Start -->
 <div class="login-container wel-container">
     <div class="center">
       <h1>Login</h1>
-      <form method="post">
+      <div class="form">
         <div class="txt_field">
-          <input type="text" required>
+          <input type="text" id="email" required>
           <span></span>
-          <label>Username</label>
+          <label>Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" required>
+          <input type="password" id="password" required>
           <span></span>
           <label>Password</label>
         </div>
         <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login" id="login">
+        <input type="submit" value="Login" onclick="login()">
         <div class="signup_link">
           Not a member? <a href="register.html">Signup</a>
         </div>
-      </form>
+      </div>
     </div>
 </div>
 <!--Login form end-->
@@ -103,11 +103,18 @@
     </footer>
     <!-- Footer -->
 
-<script type="text/javascript">
-    document.getElementById("login").onclick = function () {
-        location.href = "home.html";
-    };
-</script>
+  </body>
 
-</body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <!-- Our script must be loaded after firebase references -->
+    <script src="index.js"></script>
+
+
 </html>

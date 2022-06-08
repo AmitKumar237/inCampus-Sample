@@ -1,12 +1,14 @@
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyC4HtZ6-WedRe2WIGXo75YdX6l6BnYeMzQ",
-    authDomain: "incampus-573ea.firebaseapp.com",
-    databaseURL: "https://incampus-573ea-default-rtdb.firebaseio.com",
-    projectId: "incampus-573ea",
-    storageBucket: "incampus-573ea.appspot.com",
-    messagingSenderId: "1009118921789",
-    appId: "1:1009118921789:web:cb061c4e80af6d814bd654"
+
+    apiKey: "AIzaSyDgARm9V-WGS6DOU61cVsC4AwzfuWtPUeI",
+    authDomain: "incampus-c44df.firebaseapp.com",
+    databaseURL: "https://incampus-c44df-default-rtdb.firebaseio.com",
+    projectId: "incampus-c44df",
+    storageBucket: "incampus-c44df.appspot.com",
+    messagingSenderId: "364799673773",
+    appId: "1:364799673773:web:15440e6a0ec583e3258d24"
+
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -14,10 +16,12 @@ const firebaseConfig = {
   const auth = firebase.auth()
   const database = firebase.database()
   
+
   // Set up our register function
   function register () {
     // Get all our input fields
     email = document.getElementById('email').value
+    reg_no = document.getElementById('reg_no').value
     password = document.getElementById('password').value
     full_name = document.getElementById('full_name').value
     college_name = document.getElementById('college_name').value
@@ -29,11 +33,11 @@ const firebaseConfig = {
       return
       // Don't continue running the code
     }
-    if (validate_field(full_name) == false || validate_field(college_name) == false) {
+    if (validate_field(full_name) == false || validate_field(college_name) == false || validate_field(reg_no) == false) {
       alert('One or More Extra Fields is Outta Line!!')
       return
     }
-   
+   alert(reg_no)
     // Move on with Auth
     auth.createUserWithEmailAndPassword(email, password)
     .then(function() {
@@ -45,6 +49,7 @@ const firebaseConfig = {
   
       // Create User data
       var user_data = {
+        reg_no : reg_no,
         email : email,
         full_name : full_name,
         college_name : college_name,
@@ -56,6 +61,7 @@ const firebaseConfig = {
   
       // DOne
       alert('User Created!! You can login now.')
+      window.location = 'login.html'
 
     })
     .catch(function(error) {
@@ -74,7 +80,7 @@ const firebaseConfig = {
     password = document.getElementById('password').value
   
     // Validate input fields
-    if (validate_email(email) == false || validate_password(password) == false) {
+    if (validate_email(email) == false || validate_password(password,password) == false) {
       alert('Email or Password is Outta Line!!')
       return
       // Don't continue running the code
